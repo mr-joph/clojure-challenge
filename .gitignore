@@ -5,4 +5,5 @@
 .nrepl-port
 .cpcache/
 .clj-kondo/
+target/
 __MACOSX
