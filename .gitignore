@@ -1,0 +1,8 @@
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
+.cpcache/
+.clj-kondo/
+__MACOSX
