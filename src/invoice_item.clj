@@ -13,8 +13,8 @@
 
 (defn load-invoice
   "Load the invoice file"
-  []
-  (clojure.edn/read-string (slurp "invoice.edn")))
+  [file]
+  (clojure.edn/read-string (slurp file)))
 
 (defn valid-category?
   [category rate category-type rate-value]
@@ -37,6 +37,6 @@
 (defn validate-invoice
   []
   (->>
-   (load-invoice)
+   (load-invoice "invoice.edn")
    (:invoice/items)
    (filter check-invoice-item)))

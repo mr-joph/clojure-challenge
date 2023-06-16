@@ -4,6 +4,10 @@
 
 (defn not-blank? [value] (-> value clojure.string/blank? not))
 (defn non-empty-string? [x] (and (string? x) (not-blank? x)))
+(defn load-json
+  [json-file]
+  (clojure.data.json/read-json (slurp json-file)))
+
 
 (s/def :customer/name non-empty-string?)
 (s/def :customer/email non-empty-string?)
@@ -33,3 +37,5 @@
   (s/keys :req [:invoice/issue-date
                 :invoice/customer
                 :invoice/items]))
+
+(s/valid? ::invoice (load-json "invoice.json"))
